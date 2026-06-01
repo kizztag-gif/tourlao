@@ -88,7 +88,7 @@ iframe{position:absolute;width:1px;height:1px;left:-9999px;border:0;opacity:0}
 
     <main class="wrap">
       <div class="notice">
-        Dữ liệu được lưu trong trình duyệt bằng localStorage. Chọn section bên trái, sửa nội dung, bấm <strong>Lưu thay đổi</strong>, rồi refresh <strong>index.html</strong>.
+        Chọn section bên trái, sửa nội dung, bấm <strong>Lưu thay đổi</strong>. Trang <strong>index.html</strong> sẽ đổi khi mở cùng domain với admin, ví dụ cùng chạy trên GitHub Pages.
       </div>
       <div class="grid" id="editorGrid"></div>
     </main>
@@ -410,6 +410,7 @@ renderEditor();
 document.getElementById("landingFrame").addEventListener("load",renderEditor);
 document.getElementById("saveBtn").addEventListener("click",function(){
   localStorage.setItem(STORAGE_KEY,JSON.stringify(collectData()));
+  localStorage.setItem(STORAGE_KEY+":updated",String(Date.now()));
   draftData=readSaved();
   showStatus("Đã lưu thay đổi");
 });
