@@ -1585,6 +1585,12 @@ function showCTSuccess(){
   }else{
     applyAdminContent();
   }
+
+  window.addEventListener("storage",function(e){
+    if(e.key===STORAGE_KEY||e.key===STORAGE_KEY+":updated"){
+      applyAdminContent();
+    }
+  });
 })();
 </script>
 </body>
